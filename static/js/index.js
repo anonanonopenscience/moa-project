@@ -31,11 +31,12 @@ $(document).ready(function() {
 
     var options = {
 			slidesToScroll: 1,
-			slidesToShow: 3,
+			slidesToShow: 1.3,
+      centerMode: true,
 			loop: true,
 			infinite: true,
 			autoplay: false,
-			autoplaySpeed: 3000,
+			autoplaySpeed: 8000,
     }
 
 		// Initialize all div with carousel class
@@ -76,3 +77,5 @@ $(document).ready(function() {
     bulmaSlider.attach();
 
 })
+
+
