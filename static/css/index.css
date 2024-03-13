@@ -133,9 +133,32 @@ body {
 } 
 
 
-.results-carousel video {
-  margin: 0;
+
+.application-carousel {
+  overflow: hidden;
+}
+
+.application-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 0px solid #000000;
+  border-radius: 5px;
+  padding: 0;
+  font-size: 0;
+  width: 200px; 
+  height: auto;
+  /* object-fit: contain;  */
 } 
+
+.application-carousel img {
+  border: 2px solid #000000;
+  border-radius: 10px;
+  padding: 0;
+  width: 200px; 
+  height: auto;
+} 
+
+
 
 
 .interpolation-panel {

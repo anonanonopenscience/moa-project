@@ -14,67 +14,123 @@ function preloadInterpolationImages() {
 
 function setInterpolationImage(i) {
   var image = interp_images[i];
-  image.ondragstart = function() { return false; };
-  image.oncontextmenu = function() { return false; };
+  image.ondragstart = function () { return false; };
+  image.oncontextmenu = function () { return false; };
   $('#interpolation-image-wrapper').empty().append(image);
 }
 
 
-$(document).ready(function() {
-    // Check for click events on the navbar burger icon
-    $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
+$(document).ready(function () {
+  // Check for click events on the navbar burger icon
+  $(".navbar-burger").click(function () {
+    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+    $(".navbar-burger").toggleClass("is-active");
+    $(".navbar-menu").toggleClass("is-active");
 
+  });
+
+  // var options = {
+  // 	slidesToScroll: 1,
+  // 	slidesToShow: 1.3,
+  //   centerMode: true,
+  // 	loop: true,
+  // 	infinite: true,
+  // 	autoplay: false,
+  // 	autoplaySpeed: 8000,
+  // }
+
+  // // Initialize all div with carousel class
+  // var carousels = bulmaCarousel.attach('.carousel', options);
+
+  // // Loop on each carousel initialized
+  // for(var i = 0; i < carousels.length; i++) {
+  // 	// Add listener to  event
+  // 	carousels[i].on('before:show', state => {
+  // 		console.log(state);
+  // 	});
+  // }
+
+  // // Access to bulmaCarousel instance of an element
+  // var element = document.querySelector('#my-element');
+  // if (element && element.bulmaCarousel) {
+  // 	// bulmaCarousel instance is available as element.bulmaCarousel
+  // 	element.bulmaCarousel.on('before-show', function(state) {
+  // 		console.log(state);
+  // 	});
+  // }
+
+
+  // Options for the first carousel
+  var options1 = {
+    slidesToScroll: 1,
+    slidesToShow: 1.3,
+    centerMode: true,
+    loop: true,
+    infinite: true,
+    autoplay: false,
+    autoplaySpeed: 8000,
+  };
+
+  // Options for the second carousel, modify as needed
+  var options2 = {
+    slidesToScroll: 1,
+    slidesToShow: 3.8, // Example modification for the second carousel
+    centerMode: false, // Example modification for the second carousel
+    loop: true,
+    infinite: true,
+    autoplay: true, // Example modification for the second carousel
+    autoplaySpeed: 5000, // Example modification for the second carousel
+  };
+
+  // Initialize the first carousel using its specific selector
+  var carousels1 = bulmaCarousel.attach('#results-carousel', options1);
+
+  // Initialize the second carousel using its specific selector
+  var carousels2 = bulmaCarousel.attach('#application-carousel', options2);
+
+  // Example of adding listeners to the first carousel
+  for (var i = 0; i < carousels1.length; i++) {
+    carousels1[i].on('before:show', state => {
+      console.log('Carousel 1 State:', state);
     });
+  }
 
-    var options = {
-			slidesToScroll: 1,
-			slidesToShow: 1.3,
-      centerMode: true,
-			loop: true,
-			infinite: true,
-			autoplay: false,
-			autoplaySpeed: 8000,
-    }
+  // Example of adding listeners to the second carousel
+  for (var i = 0; i < carousels2.length; i++) {
+    carousels2[i].on('before:show', state => {
+      console.log('Carousel 2 State:', state);
+    });
+  }
 
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
+  // Assuming you want to add an event listener to a specific element in one of the carousels
+  var element = document.querySelector('#my-element');
+  if (element && element.bulmaCarousel) {
+    element.bulmaCarousel.on('before-show', function (state) {
+      console.log('Specific Element State:', state);
+    });
+  }
 
-    // Loop on each carousel initialized
-    for(var i = 0; i < carousels.length; i++) {
-    	// Add listener to  event
-    	carousels[i].on('before:show', state => {
-    		console.log(state);
-    	});
-    }
 
-    // Access to bulmaCarousel instance of an element
-    var element = document.querySelector('#my-element');
-    if (element && element.bulmaCarousel) {
-    	// bulmaCarousel instance is available as element.bulmaCarousel
-    	element.bulmaCarousel.on('before-show', function(state) {
-    		console.log(state);
-    	});
-    }
 
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
-    preloadInterpolationImages();
 
+
+
+  /*var player = document.getElementById('interpolation-video');
+  player.addEventListener('loadedmetadata', function() {
     $('#interpolation-slider').on('input', function(event) {
-      setInterpolationImage(this.value);
-    });
-    setInterpolationImage(0);
-    $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
+      console.log(this.value, player.duration);
+      player.currentTime = player.duration / 100 * this.value;
+    })
+  }, false);*/
+  preloadInterpolationImages();
 
-    bulmaSlider.attach();
+  $('#interpolation-slider').on('input', function (event) {
+    setInterpolationImage(this.value);
+  });
+  setInterpolationImage(0);
+  $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
+
+  bulmaSlider.attach();
 
 })
 
