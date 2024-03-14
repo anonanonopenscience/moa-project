@@ -88,7 +88,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Mixture-of-Attention for Subject-Context Disentanglement in
+            <h1 class="title is-2 publication-title">Mixture-of-Attention for Subject-Context Disentanglement in
               Personalized Image Generation</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -160,7 +160,7 @@
         <img src="./static/images/figure/figure.010.jpeg" alt="Teaser." />
         <h2 class="subtitle has-text-centered">
           Mixture-of-Attention (MoA) architecture enables multi-subject personalized generation with subject-context
-          disentanglement.
+          disentanglement, without any predefined layout.
         </h2>
       </div>
     </div>
@@ -245,12 +245,13 @@
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Method</h2>
+        <h2 class="title is-3">Mixture-of-Attention</h2>
       </div>
       <div class="content">
         <!-- <h3 class="title is-3">Key idea</h3> -->
         <p>
-          Our key observation is that, existing personalization methods often need to trade-off between "prior
+          Our <strong> key observation </strong> is that, existing personalization methods often need to trade-off
+          between "prior
           preservation" for better prompt consistency and "personalization finetuning" for idenity fidelity. We augment
           the attention layer using an architecture inspired by the Mixture-of-Expert (MoE) where a router is introduced
           to distribute tasks among different experts. In our case, we keep a "prior expert" frozen during finetuning to
@@ -280,7 +281,7 @@
         <h2 class="title is-3">Novel Capabilities</h2>
       </div>
 
-
+      <h3 class="title is-5">Identity Swap (Face and Body)</h3>
       <div class="item item-3">
         <p class="subtitle has-text-centered">
           MoA is able to handle different body shapes. Notice in the Yokozuna (3rd row) results, he blocks the
@@ -292,9 +293,10 @@
         </div>
       </div>
 
+      <br />
+      <br />
+      <h3 class="title is-5">Consistent Character Storytelling</h3>
       <div class="item item-3">
-        <br />
-        <br />
         <p class="subtitle has-text-centered">
           MoA enables storytelling with consistent character! 🤖 With the increase in AIGC characters, creating a story
           with consistent character across frames remains challenging.
@@ -452,10 +454,16 @@
       <div class="columns is-centered">
         <div class="column is-8">
           <div class="content">
+            
             <p>
-              This website is built on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a> .
+              Our infrastructure is built on the <a href="https://github.com/huggingface/">Diffusers and Accelerate</a> libraries. 
+              Our model is finetuned from 
+              <a href="https://huggingface.co/runwayml/stable-diffusion-v1-5">Stable Diffusion 1.5</a> and <a href="https://huggingface.co/digiplay/AbsoluteReality_v1.8.1">Absolute Reality</a>.
+              We also thank <a href="https://omriavrahami.com/the-chosen-one/">The Chosen One</a> and <a href="https://github.com/tencent-ailab/IP-Adapter">IP-Adapter</a> for providing the generated characters we used in our results.
             </p>
-
+            <p>
+              Lastly, this website is built on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a>. 
+            </p>
           </div>
         </div>
       </div>
