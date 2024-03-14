@@ -270,7 +270,8 @@
       <p>
         When we visualize the router predictions of MoA, we can see that the routers put the background pixels to the prior
         branch, and most of the foreground pixels to the personalization branch.  This behavior explains why MoA can 
-        achieve <b>disentangled subject-context control</b>.
+        achieve <b>disentangled subject-context control</b>.  The detailed behavior of the router differs across layers and timesteps.
+        This allows the personalization branch to focus on different regions within the subject (i.e. the face, the body, and so on) at different timesteps.
       </p>
       <img src="./static/images/figure/figure.018.jpeg" alt="Fig3." />
     </div>
